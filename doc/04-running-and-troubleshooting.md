@@ -48,4 +48,4 @@
 
 
 
-⬅️ Back: [Setting up Source and Target](./03-setting-up-source-and-target.md) | ⬆️ Back to [Guide Index](../README.md)
+⬅️ Back: [Setting up Source and Target](./03-setting-up-source-and-target.md) | ➡️ Next: [Introduction to Change Streams](./05-change-streams-introduction.md)
