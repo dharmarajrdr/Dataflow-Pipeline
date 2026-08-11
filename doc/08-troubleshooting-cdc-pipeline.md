@@ -110,4 +110,4 @@
 
 
 
-⬅️ Back: [Running and Verifying the Pipeline](./07-running-and-verifying-the-pipeline.md) | ⬆️ Back to [Guide Index](../README.md)
+⬅️ Back: [Running and Verifying the Pipeline](./07-running-and-verifying-the-pipeline.md) | ➡️ Next: [Introduction to the Postgres Pipeline](./09-postgres-pipeline-introduction.md)

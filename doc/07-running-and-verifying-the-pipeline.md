@@ -136,5 +136,29 @@ spannerMetadataDatabase="spanner-database"
 - This distinction matters a lot for the Oracle target we'll build later: Oracle is typically expected to hold live, current-state data (like Spanner does), not an event log. So the Oracle sink pipeline will need real upsert/delete logic keyed off `_metadata_spanner_mod_type`, rather than blindly appending like this BigQuery template does.
 
 
+### Cleaning Up
+
+- Make sure to stop the Spanner Instance and Dataflow job when you're done testing, otherwise it will keep running and incurring costs. 
+
+    1. Stop the Dataflow job:
+
+        ```shell
+        gcloud dataflow jobs list --region=us-east1 --status=active
+        gcloud dataflow jobs cancel JOB_ID --region=us-east1
+        ```
+
+    2. Delete the Spanner instance:
+
+        ```shell
+        gcloud spanner instances delete spanner-instance --project=dharma-learn-gcp
+        ```
+
+    3. Delete the GCS bucket and BigQuery dataset:
+
+        ```shell
+        gcloud storage rm -r gs://dharma-learn-gcp-df-cdc-poc
+        bq rm -r -d dharma-learn-gcp:spanner_cdc_poc
+        ```
+        
 
 ⬅️ Back: [Setting up the Source and Target](./06-setting-up-the-cdc-pipeline.md) | ➡️ Next: [Troubleshooting](./08-troubleshooting-cdc-pipeline.md)
